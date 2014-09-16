@@ -1,8 +1,13 @@
 
 mods = new Meteor.Collection("modules");
 if (Meteor.isClient) {
-  // counter starts at 0
-
+  
+Meteor.loginWithGithub({
+  requestPermissions: ['user', 'public_repo']
+}, function (err) {
+  if (err)
+    Session.set('errorMessage', err.reason || 'Unknown error');
+});
   Template.modules.helpers({
     modules: function () {
       return mods.find({}).fetch();
