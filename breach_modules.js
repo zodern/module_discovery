@@ -77,7 +77,13 @@ Meteor.loginWithGithub({
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+Accounts.onCreateUser(function(options, user) {
+  console.log("options : " + JSON.stringify(options));
+    options.profile.name = user.services.github.username;
+    console.log("user name: " + options.profile.name)
+    console.log("user : " + JSON.stringify(user)); 
+  if (options.profile)
+    user.profile = options.profile;
+  return user;
+});    
 }
