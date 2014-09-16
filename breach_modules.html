@@ -1,0 +1,39 @@
+<head>
+  <title>modules</title>
+</head>
+
+<body>
+  <nav>
+  <h1>Breach Modules</h1>
+    {{> loginButtons right}}
+    {{> add}}
+</nav>
+ <div class="home">
+  {{> modules}}
+</div>
+  <footer>
+  <h2>Contribute</h2>
+    <p>View the project on <a href="https://github.com/zodern/manager+">Github</a></p>
+    <p>(c) 2014</p>
+  </footer>
+   </body>
+<template name="add">
+
+{{#if currentUser}} 
+  <button>Add Module</button>
+{{/if}}
+</template>
+
+<template name="modules">
+  {{#each modules}}
+  <div class="module">
+  <h1><a href="https://github.com/{{owner}}/{{name}}">{{name}}    
+</a></h1>
+  <div class="description"> {{description}}</div>
+    
+  <input type="text" value="github:{{owner}}/{{name}}"/>
+  <div>Created by {{owner}} </div>
+  </div>
+  {{/each}}
+  
+</template>

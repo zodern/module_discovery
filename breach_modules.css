@@ -1,0 +1,74 @@
+/* CSS declarations go here */
+
+nav {
+  background-color: #3e3f3a;
+  color: white;
+ width: 100%;
+  padding: 20px;
+  height: auto;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0px;
+  font-family: sans-serif;
+   background-color: #e7ebd7;
+}
+
+.home {
+  padding: 20px;
+  width: 100%;
+ box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.module {
+  width: 250px;
+  height: 200px; 
+  background-color: rgba(256,256,256,.8);
+  padding: 20px;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.module h1, .module h1 a{
+  margin-top: 0px;
+  text-align: center;
+  text-decoration: none;
+  color: #3e3f3a;
+  font-size: 20px;
+}
+
+.version {
+margin-left: 10px;
+  font-size: 12px;
+}
+
+footer {
+  background: #3e3f3a;
+  color: white;
+  padding: 20px;
+  max-width: 100%;
+  margin-top: -20px;
+}
+
+footer a{
+  color: white;
+}
+.module input {
+  border: 2px solid #3e3f3a;
+  padding: 10px;
+  width: 210px;
+  box-sizing: border-box;
+  margin-bottom: 10px;}
+
+.module .description {
+  height: 48px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
