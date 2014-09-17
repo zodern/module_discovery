@@ -9,3 +9,7 @@ insecure
 accounts-ui
 accounts-base
 accounts-github
+bruz:github-api
+http
+tracker
+

@@ -6,10 +6,10 @@
   <nav>
   <h1>Breach Modules</h1>
     {{> loginButtons right}}
-    {{> add}}
+    {{> addButton}}
 </nav>
  <div class="home">
-  {{> modules}}
+  {{> page}}
 </div>
   <footer>
   <h2>Contribute</h2>
@@ -17,11 +17,19 @@
     <p>(c) 2014</p>
   </footer>
    </body>
-<template name="add">
+<template name="addButton">
 
 {{#if currentUser}} 
   <button>Add Module</button>
 {{/if}}
+</template>
+
+<template name="page">
+    {{#if home}}
+        {{> modules}}
+    {{else}}
+        {{> add}}
+    {{/if}}
 </template>
 
 <template name="modules">
@@ -36,4 +44,14 @@
   </div>
   {{/each}}
   
+</template>
+
+<template name="add">
+<h1>Select Your Modules to Add</h1>
+    <ul>
+        {{#each repositories}}
+            <li class="{{id}}" info="{{id}}">{{name}}</li>
+        {{/each}}
+        <button>Add</button>
+    </ul>
 </template>
