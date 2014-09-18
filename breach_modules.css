@@ -23,6 +23,7 @@ body {
 
 
 button, #login-buttons .login-button, .accounts-dialog .login-button {
+    font-family: 'Roboto', sans-serif;
 background-color: #80BC01;
 border: none;
 border-radius: 0px;
@@ -67,6 +68,7 @@ button:hover, #login-buttons .login-button:hover{
   text-decoration: none;
   color: #3e3f3a;
   font-size: 20px;
+  font-weight: 300;
 }
 nav h1{
     font-weight: 300;
@@ -84,7 +86,9 @@ footer {
   max-width: 100%;
   margin-top: -20px;
 }
-
+footer h2{
+    font-weight: 300;
+}
 footer a{
   color: white;
 }
@@ -126,4 +130,8 @@ nav .brand {
 
 nav .place-right {
     float: right;
+}
+
+.owner {
+    font-weight:300;
 }
