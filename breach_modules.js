@@ -1,3 +1,4 @@
+//global variable
 mods = new Meteor.Collection("modules");
 if (Meteor.isClient) {
     Session.setDefault("home", true);
@@ -91,40 +92,7 @@ if (Meteor.isClient) {
         "click button": function () {
             Session.set("home", false);
          showRepos();
-            //      console.log()
-            //      var name = prompt("What is the name of your module on github?", "");
-            //      if (name === null) {
-            //        return false;
-            //      }
-            //      var owner = prompt("What is your github name that the module is under?", "");
-            //      if (owner === null) {
-            //        return false;
-            //      }
-            //      var version = prompt("What is the current version?", "");
-            //      if (version === null) {
-            //        return false;
-            //      }
-            //      var description = prompt("Please describe your module: ", "");
-            //      if (description === null) {
-            //        return false;
-            //      }
-            //
-            //      var finish = confirm("Is this information correct? \n name: " + name + "\n owner: " + owner + "\n version: " + version + "\n description: " + description);
-            //         if (finish === true) {
-//                    mods.insert({
-//                      _id: new Meteor.Collection.ObjectID()._str,
-//                      name: name,
-//                      owner: owner,
-//                      version: version,
-//                      description: description
-//            
-//                    });
-            //        alert("Thank you.  The module should be added soon!");
-            //      } else{
-            //        alert("Please try again.");
-            //        return false;
-            //      }
-
+       
         }
     });
     /*
