@@ -148,10 +148,7 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-    FastRender.onAllRoutes(function(urlPath) {
-  //you can also use "urlPath" parameter to customize a bit as well 
-  this.subscribe('modules');
-})
+    
 Meteor.methods({
   getRepositories: function (name) {
     check(name, String);
