@@ -20,7 +20,7 @@ if (Meteor.isClient) {
          HTTP.call('get', 'https://api.github.com/users/' + Meteor.user().profile.name + '/repos', function (error, result) {
             repositories = result.data;
              console.log(result.data);
-             alert("results loaded");
+            // alert("results loaded");
              Session.set("reposLoaded", true);
              Session.set("userRepositories", result.data);
             });
@@ -42,6 +42,9 @@ if (Meteor.isClient) {
         }
     });
     Template.add.events({
+        'click .back' : function (event) {
+            Session.set("home", true);
+        },
         'click li' : function (event) {
             //alert(JSON.stringify(event));
             $(event.target).toggleClass("selected");
@@ -53,17 +56,19 @@ if (Meteor.isClient) {
                 var info;
                 Session.get("userRepositories").forEach(function(item, index, array){
                     console.log(item.id);
-                    if(id = item.id){
+                    if(id == item.id){
                         info = item;
                     }
                 });
                 mods.insert({
                       _id: new Meteor.Collection.ObjectID()._str,
+                      githubRepo : info.id,
                       name: info.name,
                       owner: info.owner.login,
                       description: info.description
             
                     });
+                Session.set("home", true);
             });
             
         }
