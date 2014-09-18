@@ -1,21 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,300);
 nav {
   background-color: #3e3f3a;
   color: white;
  width: 100%;
   padding: 20px;
+    padding-bottom: 10px;
   height: auto;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+nav div{
+    display: inline-block;
 }
 
 body {
   font-size: 15px;
   line-height: 24px;
   margin: 0px;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
    background-color: #e7ebd7;
 }
 
+
+button, #login-buttons .login-button, .accounts-dialog .login-button {
+background-color: #80BC01;
+border: none;
+border-radius: 0px;
+color: #FFF;
+padding: 4px 8px;
+font-size: 80%;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+line-height: 1.5;
+cursor: pointer;
+    -webkit-transition: all .5s;
+    transitioin: all .5s;
+    
+}
+button:hover, #login-buttons .login-button:hover{
+    background: #557D01;
+}
 .home {
   padding: 20px;
   width: 100%;
@@ -40,6 +67,9 @@ body {
   text-decoration: none;
   color: #3e3f3a;
   font-size: 20px;
+}
+nav h1{
+    font-weight: 300;
 }
 
 .version {
@@ -83,3 +113,17 @@ ul li {
     color: white;
 }
 
+
+nav span {
+    display: inline-block;
+    float: right;
+}
+
+nav .brand {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+nav .place-right {
+    float: right;
+}
