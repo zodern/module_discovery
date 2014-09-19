@@ -36,7 +36,7 @@
 </template>
 
 <template name="page">
-    {{#if home}} {{> modules}} {{else}} {{> add}} {{/if}}
+    {{#if home}} {{> modules}} {{else}} {{> addPage}} {{/if}}
 </template>
 
 <template name="modules">
@@ -52,7 +52,13 @@
     {{/each}}
 
 </template>
-
+<template name="addPage">
+    {{#if isAdding}}
+        {{> adding}}
+    {{else}}
+        {{> add}}
+    {{/if}}
+</template>
 <template name="add">
    
     <div id="addWindow">
@@ -66,5 +72,8 @@
             </ul>
             <button>Add</button>
         </div>
+    
+</template>
+<template name="adding">
     
 </template>
