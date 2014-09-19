@@ -1,7 +1,9 @@
 //global variable
 mods = new Meteor.Collection("modules");
 if (Meteor.isClient) {
+    
     Session.setDefault("home", true);
+    Session.setDefault("isAdding", false);
     Meteor.loginWithGithub({
         requestPermissions: ['user', 'public_repo']
     }, function (err) {
@@ -52,26 +54,23 @@ if (Meteor.isClient) {
             //event.target.style.background = "yellow";
         },
         'click button' : function (event, template){
+            Session.set("isAdding", true);
+            var toAdd = [];
+            // get selected elements
             template.$('ul li.selected').each(function (index){
               var id = $( this ).attr("info"); 
                 var info;
                 Session.get("userRepositories").forEach(function(item, index, array){
-                    console.log(item.id);
+                    // get the github repository for the selected item
                     if(id == item.id){
                         info = item;
                     }
                 });
-                mods.insert({
-                      _id: new Meteor.Collection.ObjectID()._str,
-                      githubRepo : info.id,
-                      name: info.name,
-                      owner: info.owner.login,
-                      description: info.description
-            
-                    });
-                Session.set("home", true);
+                toAdd.push(info);
+               
             });
-            
+            Meteor.call("addRepositories", toAdd);
+            Session.set("home", true);
         }
     });
     Template.addButton.helpers({
@@ -87,10 +86,15 @@ if (Meteor.isClient) {
             return Session.get("reposLoaded");
         }
     });
-
+Template.addPage.helpers({
+    isAdding : function () {
+        return Session.get("isAdding");
+    }
+});
     Template.addButton.events({
         "click button": function () {
             Session.set("home", false);
+            Session.set("isAdding", false)
          showRepos();
        
         }
