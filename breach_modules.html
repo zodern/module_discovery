@@ -71,10 +71,11 @@
     <div id="addWindow">
         
         
-            <h3><button class="back">Back</button>Select Your Modules to Add</h3>
+            <button class="back">Back</button> <h3 class="text-center">Add Modules</h3>
             <ul>
                 {{#each repositories}}
-                <li class="{{id}}" info="{{id}}">{{name}}</li>
+             
+                <li class="" info="{{id}}"><span class="owner">{{owner.login}}/</span>{{name}}</li>
                 {{/each}}
             </ul>
             <button>Add</button>

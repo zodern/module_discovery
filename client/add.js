@@ -1,4 +1,7 @@
 Session.setDefault("isAdding", false);
+function alert(message){
+  console.log(message);
+}
 // gloabl function  
 showRepos = function (){
      if (Meteor.user()) {
@@ -28,9 +31,13 @@ showRepos = function (){
             Session.set("home", true);
         },
         'click li' : function (event) {
-            //alert(JSON.stringify(event));
+          // prevent <span> from getting selected.
+          if(event.target.tagName !== "SPAN"){
             $(event.target).toggleClass("selected");
-            //event.target.style.background = "yellow";
+           } else{
+            $(event.currentTarget).toggleClass("selected");
+          }
+            
         },
         'click button' : function (event, template){
             Session.set("isAdding", true);
