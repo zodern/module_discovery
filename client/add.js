@@ -2,6 +2,7 @@ Session.setDefault("isAdding", false);
 Session.setDefault("addStep1", true);
 Session.setDefault("addStep2", false);
 Session.setDefault("addStep3", false);
+Session.setDefault("addStep3Loading", false);
 function alert(message){
   console.log(message);
 }
@@ -106,12 +107,39 @@ Template.addStep2.helpers({
   }
 });
 Template.addStep2.events({
+  'click .back' : function () {
+    Session.set("addStep2",false);
+    Session.set("addStep1", true);
+  },
   'click #add' : function (event, template) {
     
     var name = template.$("#name").val().trim();
     var description = template.$("#description").val().trim();
     alert(name);
     alert(description);
-    
+  
+    Meteor.call("add", {
+githubInfo : Session.get("addModule"),
+name : name,
+description : description
+});
+    Session.set("addStep1", false);
+    Session.set("addStep2", false);
+    Session.set("addStep3", true);
+    Session.set("home", true);
   }
 });
+
+Template.addStep3.helpers({
+  loading : function () {
+    return Session.get("addStep3Loading");
+  }
+})
+Template.addStep3.events({
+  'click button' : function () {
+    Session.set("addStep1", false);
+    Session.set("addStep2", false);
+    Session.set("addStep3", false);
+    Session.set("home", true);
+  }
+})
