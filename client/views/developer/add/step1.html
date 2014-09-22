@@ -1,0 +1,16 @@
+<template name="addStep1">
+   
+    <div id="addWindow">
+        
+        
+            <button class="back">Back</button> <h3 class="text-center">Add Modules</h3>
+            <ul>
+                {{#each repositories}}
+             
+                <li class="" info="{{id}}"><span class="owner">{{owner.login}}/</span>{{name}}</li>
+                {{/each}}
+            </ul>
+            <button>Add</button>
+        </div>
+    
+</template>

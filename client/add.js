@@ -1,4 +1,7 @@
 Session.setDefault("isAdding", false);
+Session.setDefault("addStep1", true);
+Session.setDefault("addStep2", false);
+Session.setDefault("addStep3", false);
 function alert(message){
   console.log(message);
 }
@@ -18,7 +21,7 @@ showRepos = function (){
      }
  };
     
-    Template.add.helpers({
+    Template.addStep1.helpers({
         repositories: function () {
             if (Meteor.user()) {
                 return Session.get("userRepositories");
@@ -26,17 +29,33 @@ showRepos = function (){
             }
         }
     });
-    Template.add.events({
+    Template.addStep1.events({
         'click .back' : function (event) {
             Session.set("home", true);
         },
-        'click li' : function (event) {
+        'click li' : function (event, template) {
           // prevent <span> from getting selected.
           if(event.target.tagName !== "SPAN"){
             $(event.target).toggleClass("selected");
            } else{
             $(event.currentTarget).toggleClass("selected");
           }
+          
+          // get github info on selected and go to step 2
+          var githubInfo;
+          template.$('ul li.selected').each(function (index){
+              var id = $( this ).attr("info"); 
+                
+                Session.get("userRepositories").forEach(function(item, index, array){
+                    // get the github repository for the selected item
+                    if(id == item.id){
+                        githubInfo = item;
+                    }
+                });
+          });
+          Session.set("addStep2", true);
+          Session.set("addStep1", false);
+          Session.set("addModule", githubInfo);
             
         },
         'click button' : function (event, template){
@@ -55,8 +74,10 @@ showRepos = function (){
                 toAdd.push(info);
                
             });
-            Meteor.call("addRepositories", toAdd);
-            Session.set("home", true);
+           // Meteor.call("addRepositories", toAdd);
+            Session.set("addStep2", true);
+          Session.set("addStep1", false);
+          Session.set("addModule", info);
         }
     });
     Template.addButton.helpers({
@@ -67,5 +88,30 @@ showRepos = function (){
 Template.addPage.helpers({
     isAdding : function () {
         return Session.get("isAdding");
-    }
+    },
+    step1 : function () {
+      return Session.get("addStep1");
+    },
+  step2 : function () {
+    return Session.get("addStep2");
+  },
+  step3 : function () {
+    return Session.get("addStep3");
+  }
+});
+Template.addStep2.helpers({
+  githubInfo : function () {
+    alert("returned addModule");
+    return Session.get("addModule");
+  }
+});
+Template.addStep2.events({
+  'click #add' : function (event, template) {
+    
+    var name = template.$("#name").val().trim();
+    var description = template.$("#description").val().trim();
+    alert(name);
+    alert(description);
+    
+  }
 });
