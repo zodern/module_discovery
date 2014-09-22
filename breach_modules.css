@@ -1,184 +1,173 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,300);
-nav {
-  background-color: #3e3f3a;
-  color: white;
- width: 100%;
-  padding: 20px;
+ nav {
+    background-color: #3e3f3a;
+    color: white;
+    width: 100%;
+    padding: 20px;
     padding-bottom: 10px;
-  height: auto;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+    height: auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
-nav div{
+nav div {
     display: inline-block;
 }
-
 body {
-  font-size: 15px;
-  line-height: 24px;
-  margin: 0px;
-  font-family: 'Roboto', sans-serif;
-   background-color: #e7ebd7;
-}
-
-
-button, #login-buttons .login-button, .accounts-dialog .login-button {
+    font-size: 15px;
+    line-height: 24px;
+    margin: 0px;
     font-family: 'Roboto', sans-serif;
-background-color: #80BC01;
-border: none;
-border-radius: 0px;
-color: #FFF;
-padding: 4px 8px;
-
-font-size: 80%;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
--o-user-select: none;
-user-select: none;
-line-height: 1.5;
-cursor: pointer;
+    background-color: #e7ebd7;
+}
+button,
+#login-buttons .login-button,
+.accounts-dialog .login-button {
+    font-family: 'Roboto', sans-serif;
+    background-color: #80BC01;
+    border: none;
+    border-radius: 0px;
+    color: #FFF;
+    padding: 4px 8px;
+    font-size: 80%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    line-height: 1.5;
+    cursor: pointer;
     -webkit-transition: all .5s;
     transition: all .5s;
     position: relative;
-      
 }
-button:hover, #login-buttons .login-button:hover{
+button:hover,
+#login-buttons .login-button:hover {
     background: #557D01;
 }
 .home {
-  padding: 20px;
-  width: 100%;
- box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
-
 .module {
-  width: 250px;
-  height: 200px; 
-  background-color: rgba(256,256,256,.8);
-  padding: 20px;
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  box-sizing: border-box;
+    width: 250px;
+    height: 200px;
+    background-color: rgba(256, 256, 256, .8);
+    padding: 20px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
-.module h1, .module h1 a{
-  margin-top: 0px;
-  text-align: center;
-  text-decoration: none;
-  color: #3e3f3a;
-  font-size: 20px;
-  font-weight: 300;
-}
-nav h1{
+.module h1,
+.module h1 a {
+    margin-top: 0px;
+    text-align: center;
+    text-decoration: none;
+    color: #3e3f3a;
+    font-size: 20px;
     font-weight: 300;
 }
-
+nav h1 {
+    font-weight: 300;
+}
 .version {
-margin-left: 10px;
-  font-size: 12px;
+    margin-left: 10px;
+    font-size: 12px;
 }
-
 footer {
-  background: #3e3f3a;
-  color: white;
-  padding: 20px;
-  max-width: 100%;
-  margin-top: -20px;
+    background: #3e3f3a;
+    color: white;
+    padding: 20px;
+    max-width: 100%;
+    margin-top: -20px;
 }
-footer h2{
+footer h2 {
     font-weight: 300;
 }
-footer a{
-  color: white;
+footer a {
+    color: white;
 }
 .module input {
-  border: 2px solid #3e3f3a;
-  padding: 10px;
-  width: 210px;
-  box-sizing: border-box;
-  margin-bottom: 10px;}
-
+    border: 2px solid #3e3f3a;
+    padding: 10px;
+    width: 210px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
 .module .description {
-  height: 48px;
-  overflow: hidden;
-  margin-bottom: 10px;
+    height: 48px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 #addWindow ul {
     list-style: none;
 }
 #addWindow ul li {
-padding: 15px;
-margin-top: 10px;
-width: 80%;
-background-color: rgba(255, 255, 255, 0.8);
-display: inline-block;
-margin: 10px;
-cursor: pointer;
-width: 400px;
-text-align: left;
+    padding: 15px;
+    margin-top: 10px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    width: 400px;
+    text-align: left;
 }
 #addWindow ul li .owner {
-color: rgba(62, 63, 58, 0.46);
+    color: rgba(62, 63, 58, 0.46);
 }
 #addWindow ul li.selected .owner {
-color: rgba(231, 235, 215, 0.49);
+    color: rgba(231, 235, 215, 0.49);
 }
-.selected{
+.selected {
     background-color: #3e3f3a !important;
     color: white;
 }
-
-
 nav span {
     display: inline-block;
     float: right;
 }
-
 nav .brand {
     font-size: 20px;
     font-weight: 300;
 }
-
 nav .place-right {
     float: right;
 }
-
 .module .owner {
-    font-weight:300;
+    font-weight: 300;
 }
-.back{
+.back {
     padding-left: 0px;
 }
 .back:after {
-right: 100%;
-top: 50%;
-border: solid rgba(0, 0, 0, 0);
-content: " ";
-height: 0;
-width: 0;
-position: absolute;
-pointer-events: none;
-border-color: rgba(128, 188, 1, 0);
-border-right-color: #80BC01;
-border-width: 13px;
-margin-top: -13px;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+    right: 100%;
+    top: 50%;
+    border: solid rgba(0, 0, 0, 0);
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(128, 188, 1, 0);
+    border-right-color: #80BC01;
+    border-width: 13px;
+    margin-top: -13px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 .back:hover:after {
-  border-right-color: #557D01;
+    border-right-color: #557D01;
 }
-
 .text-center {
-  text-align: center !important;
+    text-align: center !important;
 }
-
 #addWindow h3 {
-margin-top: -28px;
-font-size: 33px;
-margin-left: 50px;
-font-weight: 300;
+    margin-top: -28px;
+    font-size: 33px;
+    margin-left: 50px;
+    font-weight: 300;
 }
