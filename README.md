@@ -10,6 +10,7 @@ Web site to discover modules for Breach
  - Maybe we can even have the website suggest web apps in categories they don't have any.  For example, it could suggest a bookmark module if they don't have one.
 
 **Why are you not searching NPM for moduls?**
+
 I had considered it, but right now there are only 2 on NPM and many more on Github.  I thought it made more sense to allow developers to manually add the modules so they can customize how it appears in the web site since the description and readme is usually focused  more toward developers instead of users.
 
 ##ToDo
