@@ -59,7 +59,7 @@ Meteor.methods({
                 + module.githubInfo.owner.login
                 + '/' + module.githubInfo.name
                 + '+filename:package.json';
-      console.log(url);
+     
       var response = HTTP.call('get', url, {
         headers: {
           'User-Agent': 'zodern'
@@ -80,5 +80,7 @@ Meteor.methods({
           description: module.description
 
         });
+    console.log("added");
+  return "Successfully added module!";
   }
 });

@@ -2,10 +2,8 @@ Session.setDefault("isAdding", false);
 Session.setDefault("addStep1", true);
 Session.setDefault("addStep2", false);
 Session.setDefault("addStep3", false);
-Session.setDefault("addStep3Loading", false);
-function alert(message){
-  console.log(message);
-}
+Session.setDefault("addStep3Loading", true);
+
 // gloabl function  
 showRepos = function (){
      if (Meteor.user()) {
@@ -63,9 +61,10 @@ showRepos = function (){
             Session.set("isAdding", true);
             var toAdd = [];
             // get selected elements
+          var info;
             template.$('ul li.selected').each(function (index){
               var id = $( this ).attr("info"); 
-                var info;
+                
                 Session.get("userRepositories").forEach(function(item, index, array){
                     // get the github repository for the selected item
                     if(id == item.id){
@@ -102,7 +101,7 @@ Template.addPage.helpers({
 });
 Template.addStep2.helpers({
   githubInfo : function () {
-    alert("returned addModule");
+    
     return Session.get("addModule");
   }
 });
@@ -115,24 +114,30 @@ Template.addStep2.events({
     
     var name = template.$("#name").val().trim();
     var description = template.$("#description").val().trim();
-    alert(name);
-    alert(description);
+    
+    
   
     Meteor.call("add", {
 githubInfo : Session.get("addModule"),
 name : name,
 description : description
+}, function (error, result) {
+  
+  addFinished(result);
 });
     Session.set("addStep1", false);
     Session.set("addStep2", false);
     Session.set("addStep3", true);
-    Session.set("home", true);
+    Session.set("home", false);
   }
 });
 
 Template.addStep3.helpers({
-  loading : function () {
+  isloading : function () {
     return Session.get("addStep3Loading");
+  },
+  message : function () {
+    return Session.get("addStep3Message");
   }
 })
 Template.addStep3.events({
