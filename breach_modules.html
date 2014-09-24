@@ -49,12 +49,12 @@
 <template name="modules">
     {{#each modules}}
     <div class="module">
-        <h1><a href="https://github.com/{{owner}}/{{name}}">{{name}}    
+        <h1><a href="https://github.com/{{github.owner}}/{{github.name}}">{{name}}    
 </a></h1>
         <div class="description">{{description}}</div>
 
-        <input type="text" value="github:{{owner}}/{{name}}" />
-        <div class="owner">Created by {{owner}}</div>
+        <input type="text" value="github:{{github.owner}}/{{github.name}}" />
+        <div class="owner">Created by {{github.owner}}</div>
     </div>
     {{/each}}
 
