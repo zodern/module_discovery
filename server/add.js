@@ -59,13 +59,16 @@ Meteor.methods({
                 + module.githubInfo.owner.login
                 + '/' + module.githubInfo.name
                 + '+filename:package.json';
-     
+     console.log(url);
       var response = HTTP.call('get', url, {
         headers: {
           'User-Agent': 'zodern'
         }
       });
-      if(response.total_count < 1){
+    console.log(JSON.stringify(response));
+    console.log(response.total_count);
+    console.log(response.data.total_count);
+      if(response.data.total_count < 1){
      return "The github repository is not a module.  Make sure it has a package.js which lists breach_module as one of the dependencies.";
       }
        mods.insert({
