@@ -34,5 +34,56 @@ Meteor.methods({
     });
     return {succeeded : succeeded, failed: failed};
 
+  },
+  // new function to add a module
+  add : function (module) {
+    /*
+    module: 
+    {
+    githubInfo: githubInfo,
+    name: user supplied name
+    description: user supplied description
+    organization : false or modules github organization
+    }
+    */
+    
+    if(module.githubInfo.owner.type === "Organization"){
+      console.log("organization");
+      // TODO verify the user is in the organization
+      
+    }
+      
+    
+    var url = 'https://api.github.com/search/code?q=' 
+                + '"breach_module":+repo:' 
+                + module.githubInfo.owner.login
+                + '/' + module.githubInfo.name
+                + '+filename:package.json';
+     console.log(url);
+      var response = HTTP.call('get', url, {
+        headers: {
+          'User-Agent': 'zodern'
+        }
+      });
+    console.log(JSON.stringify(response));
+    console.log(response.total_count);
+    console.log(response.data.total_count);
+      if(response.data.total_count < 1){
+     return "The github repository is not a module.  Make sure it has a package.js which lists breach_module as one of the dependencies.";
+      }
+       mods.insert({
+          _id: new Meteor.Collection.ObjectID()._str,
+          
+          github: {
+          githubRepo: module.githubInfo.id,
+          name: module.githubInfo.name,
+          owner: module.githubInfo.owner.login
+        },
+          name: module.name,
+          description: module.description
+
+        });
+    console.log("added");
+  return "Successfully added module!";
   }
 });

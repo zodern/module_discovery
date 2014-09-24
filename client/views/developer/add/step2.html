@@ -1,0 +1,15 @@
+<template name="addStep2">
+  <div class="addStep2">
+    <button class="back">Back</button> <h3 class="text-center">  Step 2</h3>
+    {{#with githubInfo}}
+  <div class="form-element"><span>Github Name: </span><input type="text" readonly name="name" value="{{name}}"> </div>
+ <div class="form-element"><span>Github Description:</span>  <textarea readonly name="description">{{trim description}}
+      </textarea> </div>
+<div class="form-element">  <span>Name:</span> <input type="text" id="name" name="name" value="{{name}}">  
+</div>  
+  <div class="form-element"><span>Description:</span>   <textarea id="description" name="description">{{trim description}}
+      </textarea></div>  
+    {{/with}}
+ <button id="add">Add</button>
+    </div>
+</template>
