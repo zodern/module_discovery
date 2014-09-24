@@ -3,7 +3,7 @@ Session.setDefault("addStep1", true);
 Session.setDefault("addStep2", false);
 Session.setDefault("addStep3", false);
 Session.setDefault("addStep3Loading", true);
-
+Session.setDefault("userRepositories", []);
 // gloabl function  
 showRepos = function (){
      if (Meteor.user()) {
@@ -12,12 +12,22 @@ showRepos = function (){
          HTTP.call('get', 'https://api.github.com/users/' + Meteor.user().profile.name + '/repos', function (error, result) {
             repositories = result.data;
              console.log(result.data);
-            // alert("results loaded");
+            
              Session.set("reposLoaded", true);
-             Session.set("userRepositories", result.data);
+           
+             Session.set("userRepositories", result.data.concat(Session.get("userRepositories")));
+           
             });
+       HTTP.call('get', "https://api.github.com/users/" + Meteor.user().profile.name +"/orgs", function (error, result){
+         console.log(result);
+         result.data.forEach(function (item, index){
+         HTTP.call('get', result.data[index].repos_url, function (error, result){
+             Session.set("userRepositories", result.data.concat(Session.get("userRepositories")));
+         })})
+         });
+       }
 
-     }
+     
  };
     
     Template.addStep1.helpers({

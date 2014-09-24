@@ -31,7 +31,7 @@ if (Meteor.isClient) {
         "click button": function () {
             Session.set("home", false);
           Session.set("addStep1", true);
-            
+            Session.set("userRepositories", []);
          showRepos();
        
         }
