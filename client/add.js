@@ -110,6 +110,10 @@ Template.addPage.helpers({
   }
 });
 Template.addStep2.helpers({
+  trim : function (string){
+    console.log(string);
+    return string.trim();
+  },
   githubInfo : function () {
     
     return Session.get("addModule");
