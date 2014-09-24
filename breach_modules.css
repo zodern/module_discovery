@@ -165,9 +165,13 @@ nav .place-right {
 .text-center {
     text-align: center !important;
 }
-#addWindow h3 {
+#addWindow h3, .addStep2 h3 {
     margin-top: -28px;
     font-size: 33px;
     margin-left: 50px;
     font-weight: 300;
+}
+.form-element {
+  display: block;
+  padding: 10px;
 }

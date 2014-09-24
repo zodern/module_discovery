@@ -1,0 +1,39 @@
+.addStep2{
+  span{
+    width: 200px;
+    display: inline-block;
+    text-align: left;
+  }
+  textarea, input[type="text"]{
+    background-color: white;
+    border: 2px solid #3E3F3A;
+    padding: 10px;
+    width: 200px;
+    outline: none;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+  }
+  textarea {
+    resize: horizontal;
+    vertical-align: middle;
+  }
+  textarea:focus, input[type="text"]:focus{
+    border-color: #80BC01;
+  }
+  input[readonly] {
+        background-color: rgba(256, 256, 256, .8);
+        padding: 10px;
+        border: none;
+        
+  }
+ 
+  textarea[readonly]{
+      background-color: rgba(256,256,256,.8);
+    padding: 10px;
+    border: none;
+    resize: none;
+  }
+  
+}
