@@ -7,7 +7,7 @@ Web site to discover modules for Breach
 
  - Our main goal is to make it easy to discover and install modules. 
  - My eventual plan is to make a module that will work with the web site.  If the user has it installed, they can click an install button on the website and the module will install it. 
- - Maybe we can even have the website suggest web apps in categories they don't have any.  For example, it could suggest a bookmark module if they don't have one.
+ - Maybe we can even have the website suggest modules in categories they don't have any.  For example, it could suggest a bookmark module if they don't have one.
 
 **Why are you not searching NPM for modules?**
 
@@ -29,7 +29,6 @@ When we get a domain we can install the fast-render package which will greatly i
 
 ##Bugs and Limitations
 
- - Modules owned by organizations (including Breach) can not be added.  I am working on this in the add-module  branch.
  - Forked repos can not be added as modules because of a limitation in the search api.
 
 ##Run Locally
